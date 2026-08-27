@@ -3,16 +3,16 @@
     "denial": {
       "flake": false,
       "locked": {
-        "lastModified": 1787608732,
-        "narHash": "sha256-ANQ8eQU1SLfWzMVUjvjhcK9/cYkJF8idCssBsOv8R3o=",
+        "lastModified": 1787741760,
+        "narHash": "sha256-LEn3JA7PZ5IckhMhgTcVBokkxfxE/QJ/UmSNutM/GGY=",
         "owner": "denialwm",
         "repo": "denial",
-        "rev": "c673ccf33beffd53a32a17154e86ae35caffb709",
+        "rev": "c7a255c559adf87372f6a4c077d7f7ec31c1f3b9",
         "type": "github"
       },
       "original": {
         "owner": "denialwm",
-        "ref": "v0.2.15",
+        "ref": "v0.2.16",
         "repo": "denial",
         "type": "github"
       }
@@ -20,16 +20,16 @@
     "denialShell": {
       "flake": false,
       "locked": {
-        "lastModified": 1787608732,
-        "narHash": "sha256-ANQ8eQU1SLfWzMVUjvjhcK9/cYkJF8idCssBsOv8R3o=",
+        "lastModified": 1787741760,
+        "narHash": "sha256-LEn3JA7PZ5IckhMhgTcVBokkxfxE/QJ/UmSNutM/GGY=",
         "owner": "denialwm",
         "repo": "denial",
-        "rev": "c673ccf33beffd53a32a17154e86ae35caffb709",
+        "rev": "c7a255c559adf87372f6a4c077d7f7ec31c1f3b9",
         "type": "github"
       },
       "original": {
         "owner": "denialwm",
-        "ref": "v0.2.15",
+        "ref": "v0.2.16",
         "repo": "denial",
         "type": "github"
       }

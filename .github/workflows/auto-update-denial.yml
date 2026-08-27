@@ -1,0 +1,55 @@
+name: Auto-update Denial pins
+
+on:
+  schedule:
+    - cron: "0 */2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: auto-update-denial
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Update Denial pins
+        run: python3 scripts/update-denial-pins.py
+
+      - name: Detect changes
+        id: changes
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Validate updated flake
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          nix flake check
+          nix build .#officialRelease
+          nix build .#officialReleaseWithUiDevelopment
+          nix build .#update-check
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git add flake.nix flake.lock versions.nix
+          git commit -m "Update Denial pins"
+          git push
