@@ -204,6 +204,22 @@ The checker reports:
   `tool_backend.dart`; and
 - the fields to edit in `versions.nix` and `flake.nix`.
 
+## Automated Updates
+
+This repository includes a GitHub Actions workflow named
+`Auto-update Denial pins`. It runs every two hours and can also be started
+manually from the Actions tab.
+
+On each run, the workflow:
+
+- runs `scripts/update-denial-pins.py`;
+- updates `flake.nix`, `flake.lock`, and `versions.nix` when a new upstream
+  Denial release is available;
+- validates the result with `nix flake check`;
+- builds `.#officialRelease`, `.#officialReleaseWithUiDevelopment`, and
+  `.#update-check`; and
+- commits the updated pins back to `main` when validation succeeds.
+
 ## Upstream Project
 
 Denial is developed at
