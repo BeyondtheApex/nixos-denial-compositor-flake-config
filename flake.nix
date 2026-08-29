@@ -48,7 +48,7 @@
           update-check = denialPackages.update-check;
         });
 
-      nixosModules.default = args:
+      nixosModules.default = args@{ config, lib, pkgs, ... }:
         import ./module.nix (args // { inherit inputs; });
 
       formatter = forAllSystems (system:
