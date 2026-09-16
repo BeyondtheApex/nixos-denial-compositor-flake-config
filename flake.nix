@@ -5,14 +5,14 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     denial = {
-      url = "github:denialwm/denial/v0.4.0";
+      url = "github:denialwm/denial/v0.4.1";
       flake = false;
     };
 
     # Override this input with your own Dart shell repository when iterating on
     # the shell with sourceProfile/sourceProfileWithUiDevelopment.
     denialShell = {
-      url = "github:denialwm/denial/v0.4.0";
+      url = "github:denialwm/denial/v0.4.1";
       flake = false;
     };
 
