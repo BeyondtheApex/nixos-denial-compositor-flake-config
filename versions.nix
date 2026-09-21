@@ -9,11 +9,11 @@
   # Keep in sync with my-nixOS/flake.nix inputs.
   inputs = {
     # Compositor + packaging (deniald/denialctl/denial-session, engine release).
-    denial = { url = "github:denialwm/denial/v0.4.3"; flake = false; };
+    denial = { url = "github:denialwm/denial/v0.4.4"; flake = false; };
     # Dart shell source. Currently the same repository as `denial`; when the
     # shell moves to its own repository, change only this URL (and drop the
     # sourceRoot in package.nix if the layout changes).
-    denialShell = { url = "github:denialwm/denial/v0.4.3"; flake = false; };
+    denialShell = { url = "github:denialwm/denial/v0.4.4"; flake = false; };
     # Pinned Rust toolchain for the compositor (matches denial's rust-toolchain.toml).
     rust-overlay = { url = "github:oxalica/rust-overlay"; };
   };
@@ -22,23 +22,23 @@
   # builds entirely: the Denial shell bundle, Settings app, compositor, and
   # release Flutter engine all come from upstream artifacts.
   release = {
-    version = "0.4.3";
+    version = "0.4.4";
     denial = {
-      url = "https://github.com/denialwm/denial/releases/download/v0.4.3/denial-0.4.3-1-x86_64.pkg.tar.zst";
-      sha256 = "sha256-Qy5OuFUhoum+wiifRv8tuY46Xok/mvqJLnH9AerZ7RM=";
+      url = "https://github.com/denialwm/denial/releases/download/v0.4.4/denial-0.4.4-1-x86_64.pkg.tar.zst";
+      sha256 = "sha256-+/y11wskQUnnjL7newEc+Uqp/ClOoCOxehiCChdB8j8=";
     };
     engine = {
-      version = "1.0.4.3";
-      url = "https://github.com/denialwm/denial/releases/download/v0.4.3/denial-flutter-engine-1.0.4.3-1-x86_64.pkg.tar.zst";
-      sha256 = "sha256-tvFkQsZYTosKTecqmWhiIs1OTxUljsv7H+o7niOppUY=";
+      version = "1.0.4.4";
+      url = "https://github.com/denialwm/denial/releases/download/v0.4.4/denial-flutter-engine-1.0.4.4-1-x86_64.pkg.tar.zst";
+      sha256 = "sha256-02nYDDwlRKIdTKKIclinVEsgzOJ7wbWVX+kWIXqpgx0=";
     };
   };
 
   # Prebuilt fork Flutter toolchain (denial-ui-development release package).
   uiDev = {
-    version = "0.4.3";
-    url = "https://github.com/denialwm/denial/releases/download/v0.4.3/denial-ui-development-0.4.3-1-x86_64.pkg.tar.zst";
-    sha256 = "sha256-MQggBBHu+Ok8H/NMQm5VRAktKur9uRwkUEubmdrLniM=";
+    version = "0.4.4";
+    url = "https://github.com/denialwm/denial/releases/download/v0.4.4/denial-ui-development-0.4.4-1-x86_64.pkg.tar.zst";
+    sha256 = "sha256-gXlV4K/RmnwagZlX08PGRPyROmMjbrGoCkqd2GGF7io=";
   };
 
   # Flutter version of the pinned toolchain (must equal what the shell's
@@ -50,7 +50,7 @@
   # Flutter revision recorded in the archive's flutter.version.json.
   flutterFramework = {
     repository = "https://github.com/denialwm/flutter";
-    revision = "c8894357b3a91902c358e8ad5cf0ebc85d45e83e";
+    revision = "d0817320163b3fb5a284e63cc21f2d6b9138442b";
     toolBackendShellSha256 = "sha256-L5JsHTKVrhWOfCZ8D14i71R6ms4MkBoR/UUVvTir2uU=";
     toolBackendDartSha256 = "sha256-WggtMwfa3gH19ojRC5c1Sv5mfmQT1VaYkd8us5UAJXo=";
   };
